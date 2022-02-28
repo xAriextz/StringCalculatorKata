@@ -65,7 +65,7 @@ class KataStringCalculatorTest extends TestCase
 
         $result = $kataStringCalculator->add("175.2,\n35");
 
-        $this->assertEquals("Number expected but n found at position 6.", $result);
+        $this->assertEquals("Number expected but 'n' found at position 6.", $result);
     }
     /**
      * @test
@@ -86,5 +86,15 @@ class KataStringCalculatorTest extends TestCase
         $result = $kataStringCalculator->add("//xep\n1xep2");
 
         $this->assertEquals("3", $result);
+    }
+    /**
+     * @test
+     */
+    public function should_give_error_using_other_separators_than_customs_separators(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("//|\n1|2,3");
+
+        $this->assertEquals("'|' expected but ',' found at position 3.", $result);
     }
 }
