@@ -2,6 +2,8 @@
 
 namespace Deg540\PHPTestingBoilerplate;
 
+use PhpParser\Node\Scalar\String_;
+
 class KataStringCalculator
 {
     public function add(String $inputNumbers): String
@@ -12,23 +14,10 @@ class KataStringCalculator
             return "Number expected but EOF found.";
         else
         {
-            $negativeNumbers = "";
-            $position = 0;
-            $splittedInputNumbers = str_split($inputNumbers);
-            foreach($splittedInputNumbers as $char)
-            {
-                if($char == "-") {
-                    $negativeNumbers .= "-";
-                    $negativeNumbers .= $splittedInputNumbers[$position+1];
-                    $negativeNumbers .= ", ";
-                }
-                $position++;
-            }
-            if(strlen($negativeNumbers) > 0)
-            {
-                $negativeNumbers = substr($negativeNumbers, 0, -2);
-                return "Negative not allowed : $negativeNumbers";
-            }
+            $result = $this->dontAllowNegativeNumbers($inputNumbers);
+            if(strlen($result) > 0)
+                return $result;
+
             $delimeter = "";
             $areCustomOperators = false;
             if($inputNumbers[0]=="/" and $inputNumbers[1]=="/")
@@ -73,5 +62,28 @@ class KataStringCalculator
             }
             return $result;
         }
+
+    }
+
+    public function dontAllowNegativeNumbers($inputNumbers): String
+    {
+        $negativeNumbers = "";
+        $position = 0;
+        $splittedInputNumbers = str_split($inputNumbers);
+        foreach($splittedInputNumbers as $char)
+        {
+            if($char == "-") {
+                $negativeNumbers .= "-";
+                $negativeNumbers .= $splittedInputNumbers[$position+1];
+                $negativeNumbers .= ", ";
+            }
+            $position++;
+        }
+        if(strlen($negativeNumbers) > 0)
+        {
+            $negativeNumbers = substr($negativeNumbers, 0, -2);
+            return "Negative not allowed : $negativeNumbers";
+        }
+        return "";
     }
 }
