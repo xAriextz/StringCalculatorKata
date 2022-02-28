@@ -10,6 +10,7 @@ class KataStringCalculator
             return "0";
         else
         {
+            $inputNumbers = str_replace("\n",",",$inputNumbers);
             $separatedNumbers = explode(",",$inputNumbers);
             $result = 0;
             foreach ($separatedNumbers as $numberToAdd)

@@ -47,4 +47,14 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("6.4", $result);
     }
+    /**
+     * @test
+     */
+    public function should_add_many_numbers_separated_by_comma_or_newlines(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("1\n2,3");
+
+        $this->assertEquals("6", $result);
+    }
 }
