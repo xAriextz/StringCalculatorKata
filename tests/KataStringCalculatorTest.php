@@ -27,4 +27,14 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("1", $result);
     }
+    /**
+     * @test
+     */
+    public function when_given_1comma2_return_3(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("1,2");
+
+        $this->assertEquals("3", $result);
+    }
 }
