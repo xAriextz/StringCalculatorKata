@@ -6,6 +6,8 @@ class KataStringCalculator
 {
     public function add(String $number): String
     {
-        return "0";
+        if($number == "")
+            return "0";
+
     }
 }

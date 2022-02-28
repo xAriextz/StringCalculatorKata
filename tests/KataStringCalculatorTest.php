@@ -13,8 +13,9 @@ class KataStringCalculatorTest extends TestCase
     public function when_given_empty_string_return_0(){
         $kataStringCalculator = new KataStringCalculator();
 
-        $result = add("");
+        $result = $kataStringCalculator->add("");
 
         $this->assertEquals("0", $result);
     }
+
 }
