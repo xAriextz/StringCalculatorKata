@@ -17,4 +17,14 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("0", $result);
     }
+    /**
+     * @test
+     */
+    public function when_given_1_return_1(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("1");
+
+        $this->assertEquals("1", $result);
+    }
 }
