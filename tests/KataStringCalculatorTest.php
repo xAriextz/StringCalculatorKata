@@ -57,4 +57,14 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("6", $result);
     }
+    /**
+     * @test
+     */
+    public function should_give_error_with_two_consecutive_separators(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("175.2,\n35");
+
+        $this->assertEquals("Number expected but '\n' found at position 6.", $result);
+    }
 }
