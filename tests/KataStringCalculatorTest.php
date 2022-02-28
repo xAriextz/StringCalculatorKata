@@ -97,4 +97,14 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("'|' expected but ',' found at position 3.", $result);
     }
+    /**
+     * @test
+     */
+    public function calling_with_negative_numbers_should_return_list_of_negative_numbers(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("2, -4, -5");
+
+        $this->assertEquals("Negative not allowed : -4, -5", $result);
+    }
 }

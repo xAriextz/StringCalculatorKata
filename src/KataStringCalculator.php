@@ -12,6 +12,24 @@ class KataStringCalculator
             return "Number expected but EOF found.";
         else
         {
+            $negativeNumbers = "";
+            echo strlen($negativeNumbers);
+            $position = 0;
+            $splittedInputNumbers = str_split($inputNumbers);
+            foreach($splittedInputNumbers as $char)
+            {
+                if($char == "-") {
+                    $negativeNumbers .= "-";
+                    $negativeNumbers .= $splittedInputNumbers[$position+1];
+                    $negativeNumbers .= ", ";
+                }
+                $position++;
+            }
+            if(strlen($negativeNumbers) > 0)
+            {
+                $negativeNumbers = substr($negativeNumbers, 0, -2);
+                return "Negative not allowed : $negativeNumbers";
+            }
             $delimeter = "";
             $areCustomOperators = false;
             if($inputNumbers[0]=="/" and $inputNumbers[1]=="/")
