@@ -17,5 +17,4 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("0", $result);
     }
-
 }
