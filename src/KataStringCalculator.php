@@ -4,16 +4,19 @@ namespace Deg540\PHPTestingBoilerplate;
 
 class KataStringCalculator
 {
-    public function add(String $number): String
+    public function add(String $inputNumbers): String
     {
-        $separated_numbers = explode(",",$number);
-        if($number == "")
+        if($inputNumbers == "")
             return "0";
-        else if(sizeof($separated_numbers) == 1)
-            return $number;
         else
         {
-            return $separated_numbers[0]+$separated_numbers[1];
+            $separatedNumbers = explode(",",$inputNumbers);
+            $result = 0;
+            foreach ($separatedNumbers as $numberToAdd)
+            {
+                $result += $numberToAdd;
+            }
+            return $result;
         }
     }
 }
