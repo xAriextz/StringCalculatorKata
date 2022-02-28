@@ -13,7 +13,6 @@ class KataStringCalculator
         else
         {
             $negativeNumbers = "";
-            echo strlen($negativeNumbers);
             $position = 0;
             $splittedInputNumbers = str_split($inputNumbers);
             foreach($splittedInputNumbers as $char)

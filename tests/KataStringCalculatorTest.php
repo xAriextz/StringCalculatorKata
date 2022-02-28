@@ -107,4 +107,16 @@ class KataStringCalculatorTest extends TestCase
 
         $this->assertEquals("Negative not allowed : -4, -5", $result);
     }
+    /**
+     * @test
+     */
+    /*
+    public function when_having_multiple_errors_return_all_error_messages(){
+        $kataStringCalculator = new KataStringCalculator();
+
+        $result = $kataStringCalculator->add("-1,,2,");
+
+        $this->assertEquals("Negative not allowed : -1\nNumber expected but ',' found at position3.\nNumber expected but EOF found.", $result);
+    }
+    */
 }
